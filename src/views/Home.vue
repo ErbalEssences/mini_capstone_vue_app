@@ -1,7 +1,9 @@
 <template>
   <div class="home">
-    <h1>New Products</h1>
+    <!-- <h1>New Products</h1>
     <div>
+      <router-link v-bind:to="'/products/' + product.id">Name: {{ product.name }}</router-link>
+
       Name: <input v-model="newProductName">
     </div>
 
@@ -18,11 +20,11 @@
     </div>
 
     <button v-on:click="createProduct()">Create</button>
-
+ -->
     <h1>All Products</h1>
 
     <div v-for="product in products">
-      <h2>{{ product.name }}</h2>
+      <h2><router-link v-bind:to="'/products/' + product.id">{{ product.name }}</router-link></h2>
       <div>
         <img v-bind:src="product.image_url" alt=""> 
       </div>
@@ -30,7 +32,7 @@
 
         <p>Description: {{ product.description }}</p>
         <p>Total: {{ product.formatted.total }}</p>
-        <h3>Edit Product</h3>
+ <!--        <h3>Edit Product</h3>
           <div>
             <div>
               Name: <input v-model="product.name">
@@ -47,11 +49,13 @@
             <div>
               Image Url: <input v-model="product.image_url">
             </div>
+
             <button v-on:click= "updateProduct(product)">Update</button>
             <button v-on:click= "destroyProduct(product)">Delete</button>
-          </div>
+          </div> -->
+         </div>
+      <button v-on:click="showProduct(product)">{{moreInfoButton}}</button>   
       </div>
-      <button v-on:click="showProduct(product)">{{moreInfoButton}}</button>
     </div>
   </div>
 </template>
